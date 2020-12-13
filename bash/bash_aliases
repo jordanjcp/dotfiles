@@ -1,0 +1,16 @@
+#!/bin/bash
+alias vim='nvim'
+alias c='clear'
+alias myip="curl http://ipecho.net/plain; echo"
+alias ..='cd ..'
+alias cd..='cd ..'
+alias ssh='TERM=xterm-256color ssh'
+alias ll='ls -AlFh'
+alias la='ls -AF'
+alias l='ls -CF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias cht.sh='sh ~/bin/cht.sh'
+alias clamscan='clamscan -r -o --bell -l ~/clamscan_$(date +"%F_%H:%M").log'
+
