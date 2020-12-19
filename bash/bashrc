@@ -71,7 +71,7 @@ fi
 
 #Keychain
 if [ -x "$(command -v keychain)" ] && [ -x "$(command -v ssh-agent)" ]; then
-  eval $(keychain --eval --agents ssh --nogui --noask --timeout 60 --quiet id_ed25519)
+  eval $(keychain --eval --agents ssh --nogui --noask --timeout 60 --quiet id_*)
 fi
 
 #Colors in manpages
