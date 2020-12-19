@@ -42,7 +42,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -x /usr/share/git/completion/git-completion.bash ]; then
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
   source /usr/share/git/completion/git-completion.bash
 fi
 
@@ -55,7 +55,7 @@ if ! shopt -oq posix; then
 fi
 
 #Git prompt
-if [ -x /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
+if [ -f /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
   source /usr/share/git/completion/git-prompt.sh
   export GIT_PS1_SHOWUPSTREAM="auto"
   export GIT_PS1_SHOWUNTRACKEDFILES=true
