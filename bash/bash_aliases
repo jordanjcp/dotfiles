@@ -4,6 +4,7 @@ alias c='clear'
 alias myip="curl http://ipecho.net/plain; echo"
 alias ip="ip -color=auto"
 alias dmesgl="dmesg --color=always | less"
+alias cfg='cd ~/.config'
 
 #cd shortcuts
 alias ..='cd ..'
@@ -15,7 +16,8 @@ alias ssh='TERM=xterm-256color ssh'
 
 #ls shortcuts and always colored
 alias ls='ls --color=auto'
-alias ll='ls -AlFh --color=auto'
+alias ll='ls -lFh --color=auto'
+alias lla='ls -AlFh --color=auto'
 alias la='ls -AF --color=auto'
 alias l='ls -CF --color=auto'
 
