@@ -7,12 +7,12 @@ alias dmesgl="dmesg --color=always | less"
 alias cfg='cd ~/.config'
 
 #cd shortcuts
-alias ..='cd ..'
-alias cd..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='cdl ..'
+alias cd..='cdl ..'
+alias ...='cdl ../..'
+alias ....='cdl ../../..'
 
-alias ssh='TERM=xterm-256color ssh'
+#alias ssh='TERM=xterm-256color ssh'
 
 #ls shortcuts and always colored
 alias ls='ls --color=auto'
@@ -27,6 +27,8 @@ alias egrep='egrep --color=auto'
 
 #git shortcuts
 alias gsu='git submodule update --remote && git commit -a -m "update submodule" && git push origin main'
+alias gcm='git commit -a -m'
+alias gs='git status'
 
 #clamscan is recursive with a timestamped log
 alias clamscan='sudo freshclam && clamscan -r -o -l ~/clamscan_$(date +"%F_%H:%M").log'
