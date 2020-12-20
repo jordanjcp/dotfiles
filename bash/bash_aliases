@@ -33,3 +33,5 @@ alias gs='git status'
 #clamscan is recursive with a timestamped log
 alias clamscan='sudo freshclam && clamscan -r -o -l ~/clamscan_$(date +"%F_%H:%M").log'
 
+#Pacman
+alias autoremove='pacman -Qtdq | pacman -Rns -'

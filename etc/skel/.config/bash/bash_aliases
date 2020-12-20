@@ -1,0 +1,8 @@
+#!/bin/bash
+##Pull alias from /etc/bash.bash_aliases
+#Add custom aliases after this
+#Remove this to turn off the default aliases
+
+if [ -f /etc/bash.bash_aliases ]; then
+  . /etc/bash.bash_aliases
+fi

@@ -1,5 +1,7 @@
-#version controlled .bashrc
-#installed via ansible
+# You should not edit this file as any changes may be lost.
+# This file should be sourced from your ~/.config/bash/bashrc file
+# Any changes should be made there
+# Updated via ansible
 
 # If not running interactively, don't do anything
 case $- in
@@ -15,8 +17,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=10000
+HISTSIZE=10000
+HISTFILESIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -54,7 +56,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Git prompt
+# Git prompt
 if [ -f /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
   source /usr/share/git/completion/git-prompt.sh
   export GIT_PS1_SHOWUPSTREAM="auto"
@@ -63,18 +65,18 @@ if [ -f /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ];
   export GIT_PS1_SHOWDIRTYSTATE=true
 fi
 
-#source fzf
+# Source fzf
 if [ -x "$(command -v fzf)" ]; then
   source /usr/share/fzf/key-bindings.bash
   source /usr/share/fzf/completion.bash
 fi
 
-#Keychain
+# Keychain
 if [ -x "$(command -v keychain)" ] && [ -x "$(command -v ssh-agent)" ]; then
-  eval $(keychain --eval --agents ssh --nogui --noask --timeout 60 --quiet id_*)
+  eval $(keychain --eval --agents ssh --nogui --noask --timeout 60 --quiet)
 fi
 
-#Colors in manpages
+# Enables colors in manpages
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
@@ -85,6 +87,6 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 
-#Functions
-#cdl is cd + ls 
+# Functions
+# cdl is cd + ls 
 cdl() { cd "$@" && ls -A; }

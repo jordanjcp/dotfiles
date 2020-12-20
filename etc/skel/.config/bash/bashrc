@@ -1,0 +1,19 @@
+#
+# /etc/bash.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Source /etc/bash.bashrc for system defaults
+# Remove this and edit this file to customize yourself
+if [ -f /etc/bash.bashrc ]; then
+  . /etc/bash.bashrc
+fi
+
+# Aliases from ~/.config/bash/bash_aliases
+if [ -f ~/.config/bash/bash_aliases ]; then
+  . ~/.config/bash/bash_aliases
+fi
+
+# Any additional customization should after here
