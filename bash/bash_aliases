@@ -6,15 +6,15 @@ alias ip="ip -color=auto"
 alias dmesgl="dmesg --color=always | less"
 alias cfg='cd ~/.config'
 
-#cd shortcuts
+# cd shortcuts
 alias ..='cdl ..'
 alias cd..='cdl ..'
 alias ...='cdl ../..'
 alias ....='cdl ../../..'
 
-#alias ssh='TERM=xterm-256color ssh'
+# alias ssh='TERM=xterm-256color ssh'
 
-#ls shortcuts and always colored
+# ls shortcuts and always colored
 alias ls='ls --color=auto'
 alias ll='ls -lFh --color=auto'
 alias lla='ls -AlFh --color=auto'
@@ -25,13 +25,16 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-#git shortcuts
+# Git shortcuts
 alias gsu='echo "Updating Submodules from Remote"; git submodule update --remote && echo "Committing Changes to this Repo"; git commit -a -m "update submodules" && echo "Pushing Commit to Remote"; git push origin main'
 alias gcm='git commit -a -m'
 alias gs='git status'
 
-#clamscan is recursive with a timestamped log
+# Clamscan is recursive with a timestamped log
 alias clamscan='sudo freshclam && clamscan -r -o -l ~/clamscan_$(date +"%F_%H:%M").log'
 
-#Pacman
+# Pacman
 alias autoremove='pacman -Qtdq | pacman -Rns -'
+
+# tmux attach to main session if it exists if not create new session named main
+alias tmuxa='tmux new-session -A -s main'
