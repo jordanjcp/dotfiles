@@ -41,13 +41,7 @@ if [ -f ~/.config/bash/bash_aliases ]; then
     . ~/.config/bash/bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /usr/share/git/completion/git-completion.bash ]; then
-  source /usr/share/git/completion/git-completion.bash
-fi
-
+# Enable programmable completion features in bash
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -56,27 +50,40 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Git prompt
+# Git prompt, set didn't work changed to export and seems fine now
 if [ -f /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
-  source /usr/share/git/completion/git-prompt.sh
+  . /usr/share/git/completion/git-prompt.sh
   export GIT_PS1_SHOWUPSTREAM="auto"
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWDIRTYSTATE=true
 fi
 
-# Source fzf
-if [ -x "$(command -v fzf)" ]; then
-  source /usr/share/fzf/key-bindings.bash
-  source /usr/share/fzf/completion.bash
+if [ -f /usr/share/git/completion/git-completion.bash ] && [ -x "$(command -v git)" ]; then
+  . /usr/share/git/completion/git-completion.bash
 fi
 
-# Keychain
+# Source fzf files
+# Should work on arch and ubuntu based distros
+if [ -x "$(command -v fzf)" ]; then
+  if [ -f ~/.config/fzf/*.bash ]; then
+    . ~/.config/fzf/key-bindings.bash
+    . ~/.config/fzf/completion.bash
+  elif [ -f /usr/share/fzf/*.bash ]; then
+    . /usr/share/fzf/key-bindings.bash
+    . /usr/share/fzf/completion.bash
+  elif [ -f /usr/share/doc/fzf/examples/*.bash ]; then
+    . /usr/share/doc/fzf/examples/key-bindings.bash
+    . /usr/share/doc/fzf/examples/completion.bash
+  fi
+fi
+
+# Keychain setup only if keychain and ssh-agent are there
 if [ -x "$(command -v keychain)" ] && [ -x "$(command -v ssh-agent)" ]; then
   eval $(keychain --eval --agents ssh --nogui --noask --timeout 60 --quiet)
 fi
 
-# Enables colors in manpages
+# Enables colors in manpages, this doesn't negatively impact anything that I know of
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
