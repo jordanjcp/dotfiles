@@ -26,7 +26,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Git shortcuts
-alias gsu='echo "Updating Submodules from Remote"; git submodule update --remote && echo "Committing Changes to this Repo"; git commit -a -m "update submodules" && echo "Pushing Commit to Remote"; git push origin main'
+alias gsu='echo ">>>Updating Submodules from Remote<<<"; git submodule update --remote && echo ">>>Committing Changes to this Repo<<<"; git commit -a -m "update submodules" && echo ">>>Pushing Commit to Remote<<<"; git push origin main'
 alias gcm='git commit -a -m'
 alias gs='git status'
 
