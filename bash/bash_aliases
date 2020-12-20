@@ -4,13 +4,14 @@ alias c='clear'
 alias myip="curl http://ipecho.net/plain; echo"
 alias ip="ip -color=auto"
 alias dmesgl="dmesg --color=always | less"
-alias cfg='cd ~/.config'
 
 # cd shortcuts
 alias ..='cdl ..'
 alias cd..='cdl ..'
 alias ...='cdl ../..'
 alias ....='cdl ../../..'
+alias cfg='cd ~/.config'
+alias dev='cd ~/dev'
 
 # alias ssh='TERM=xterm-256color ssh'
 
