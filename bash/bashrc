@@ -66,13 +66,13 @@ fi
 # Source fzf files
 # Should work on arch and ubuntu based distros
 if [ -x "$(command -v fzf)" ]; then
-  if [ -f ~/.config/fzf/*.bash ]; then
+  if [ -f ~/.config/fzf/key-bindings.bash ] && [ -f ~/.config/fzf/completion.bash ]; then
     . ~/.config/fzf/key-bindings.bash
     . ~/.config/fzf/completion.bash
-  elif [ -f /usr/share/fzf/*.bash ]; then
+  elif [ -f /usr/share/fzf/key-bindings.bash ] && [ -f /usr/share/fzf/completion.bash ]; then
     . /usr/share/fzf/key-bindings.bash
     . /usr/share/fzf/completion.bash
-  elif [ -f /usr/share/doc/fzf/examples/*.bash ]; then
+  elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && [ -f /usr/share/doc/fzf/examples/completion.bash ]; then
     . /usr/share/doc/fzf/examples/key-bindings.bash
     . /usr/share/doc/fzf/examples/completion.bash
   fi
