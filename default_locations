@@ -1,0 +1,12 @@
+#This is just to help me remember where programs look for their configs
+
+System_Configs
+  Bash
+    /etc/bash.*
+
+User_Configs
+  Bash
+    ~/.bash*
+  Tmux
+    ~/.tmux.config
+
