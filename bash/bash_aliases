@@ -34,8 +34,12 @@ alias gs='git status'
 # Clamscan is recursive with a timestamped log
 alias clamscan='sudo freshclam && clamscan -r -o -l ~/clamscan_$(date +"%F_%H:%M").log'
 
-# Pacman
-alias autoremove='pacman -Qtdq | pacman -Rns -'
+# Auto remove orphaned packages
+if [ -x "$(command -v pacman)" ]; then
+	alias autoremove='pacman -Qtdq | sudo pacman -Rns -'
+elif [ -x "$(command -v apt)" ]; then
+	alias autoremove='sudo apt autoremove && sudo apt autoclean'
+fi
 
 # tmux attach to main session if it exists if not create new session named main
 alias tmuxa='tmux new-session -A -s main'
