@@ -1,0 +1,73 @@
+# This is the sshd server system-wide configuration file.
+
+
+Include /etc/ssh/sshd_config.d/*.conf
+# Always use v2
+Protocol 2
+
+# Change ssh port
+Port 22
+
+# Hostkeys
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+
+# Forwarding
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+X11Forwarding no
+
+# Clients / Users
+AllowGroups ssh-user
+ClientAliveInterval 900
+ClientAliveCountMax 0
+PermitEmptyPasswords no
+PermitRootLogin no
+StrictModes yes
+LoginGraceTime 10
+MaxAuthTries 6
+MaxSessions 10
+PermitTTY yes
+PermitUserEnvironment yes
+TCPKeepAlive yes
+PrintMotd no
+Banner none
+
+# Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Auth Type
+AuthenticationMethods publickey
+PubkeyAuthentication yes
+PasswordAuthentication no
+UsePAM yes
+ChallengeResponseAuthentication no
+IgnoreRhosts yes
+HostbasedAuthentication no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no
+KerberosAuthentication no
+
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
+HostKeyAlgorithms ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,ssh-dss
+
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem sftp	/usr/lib/openssh/sftp-server
+
+Match User tunneluser
+	X11Forwarding no
+	AllowTcpForwarding yes
+	PermitTTY no
+	ForceCommand /bin/false
+  	AllowAgentForwarding no
+	MaxSessions 0
+	GatewayPorts yes
