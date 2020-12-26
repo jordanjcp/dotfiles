@@ -95,5 +95,9 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 
 # Functions
+
 # cdl is cd + ls 
 cdl() { cd "$@" && ls -A; }
+
+# touch-p will touch file and create directory as needed (mkdir -p a/b/c/d/ && touch a/b/c/d/e.txt)
+touch-p() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
