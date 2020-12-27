@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/jordan/dev/dotfiles'
+let g:netrw_dirhist_2='/home/jordan/backup'
+let g:netrw_dirhist_1='/home/jordan/.config/nvim/plugged/coc.nvim'
