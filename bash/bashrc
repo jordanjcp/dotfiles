@@ -48,16 +48,16 @@ if ! shopt -oq posix; then
 fi
 
 # Git prompt, set didn't work changed to export and seems fine now
-if [ -f /usr/share/git/completion/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
-  . /usr/share/git/completion/git-prompt.sh
+if [ -f ~/.bash/git-prompt.sh ] && [ -x "$(command -v git)" ]; then
+  . ~/.bash/git-prompt.sh
   export GIT_PS1_SHOWUPSTREAM="auto"
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWDIRTYSTATE=true
 fi
 
-if [ -f /usr/share/git/completion/git-completion.bash ] && [ -x "$(command -v git)" ]; then
-  . /usr/share/git/completion/git-completion.bash
+if [ -f ~/.bash/git-completion.bash ] && [ -x "$(command -v git)" ]; then
+  . ~/.bash/git-completion.bash
 fi
 
 # Source fzf files
